@@ -1,0 +1,19 @@
+{
+    "folders": [
+		{
+			"path": "..\\introduccion-a-js-master"
+		},
+		{
+			"path": "..\\introduccion-a-js-master\\js-xmas-edition-master"
+		},
+		{
+			"path": "..\\Calculadora"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "App Leer Seba"
+	}
+}

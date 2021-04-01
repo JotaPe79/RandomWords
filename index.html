@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprendiendo a Leer</title>
+</head>
+
+<link href="styles.css" rel="stylesheet" type="text/css">
+
+<body>
+
+    <FORM NAME="form-palabras">
+        <INPUT TYPE=TEXT NAME="Caja" id="caja" disabled>
+        <BR>
+        <INPUT TYPE=BUTTON class="button" VALUE="Mostrar Palabra" onClick="mostrar(elegirPalabraAzar(palabras))" id="button">
+        <INPUT TYPE=BUTTON class="button" VALUE="Editar Palabras" onclick="mostrarEditor();construirArray()">
+    </FORM>
+
+    <div id="mostrar-ocultar" style="display:none">
+        <textarea id="texto">
+
+</textarea>
+        <INPUT TYPE=BUTTON class="button" VALUE="Listo" onclick="ocultarEditor();construirArray()">
+    </div>
+
+    <script src="App.js"></script>
+</body>
+
+</html>
