@@ -29,7 +29,7 @@ function guardarPalabra(texto) {
     $.ajax({
         type: "POST",
         url: "https://publish.ip1.cc",
-        data: { data: texto },
+        data: { data: JSON.stringify({ data: texto }) },
     }).done(function(r) {
         window.location.hash = r.key;
     });
@@ -38,9 +38,9 @@ function guardarPalabra(texto) {
 function cargarPalabraDeURL() {
     if (window.location.hash) {
         $.get(
-            "https://publish.ip1.cc/" + window.location.hash.substr(1) + ".json"
+            "https://publish.ip1.cc/storage/uploads/" + window.location.hash.substr(1) + ".json"
         ).done(function(r) {
-            document.getElementById("texto").value = r;
+            document.getElementById("texto").value = r.data;
         });
     }
 }
