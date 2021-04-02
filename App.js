@@ -1,4 +1,4 @@
-var palabras
+var palabras = [""]
 
 function elegirPalabraAzar(lista) {
     return lista[Math.floor(Math.random() * palabras.length)];
@@ -41,13 +41,14 @@ function cargarPalabraDeURL() {
             "https://publish.ip1.cc/storage/uploads/" + window.location.hash.substr(1) + ".json"
         ).done(function(r) {
             document.getElementById("texto").value = r.data;
+            palabras = construirArray();
         });
     }
 }
 
 function init() {
+
     cargarPalabraDeURL();
-    palabras = construirArray();
     mostrar(elegirPalabraAzar(palabras));
 
 }
