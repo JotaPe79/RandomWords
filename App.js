@@ -21,13 +21,38 @@ function mostrarEditor(palabras) {
 function ocultarEditor() {
     var x = document.getElementById("mostrar-ocultar");
     x.style.display = "none"
-    localStorage.setItem("texto", document.getElementById("texto").value)
+    guardarPalabra(document.getElementById("texto").value)
     palabras = construirArray();
 }
 
+function guardarPalabra(texto) {
+    $.ajax({
+        type: "POST",
+        url: "https://publish.ip1.cc",
+        data: { data: texto },
+    }).done(function(r) {
+        window.location.hash = r.key;
+    });
+}
+
+function cargarPalabraDeURL() {
+    if (window.location.hash) {
+        $.get(
+            "https://publish.ip1.cc/" + window.location.hash.substr(1) + ".json"
+        ).done(function(r) {
+            document.getElementById("texto").value = r;
+        });
+    }
+}
+
 function init() {
-    document.getElementById("texto").value = localStorage.getItem("texto");
+    cargarPalabraDeURL();
     palabras = construirArray();
     mostrar(elegirPalabraAzar(palabras));
+
 }
 init();
+
+$(function() {
+    cargarPalabraDeURL();
+});
